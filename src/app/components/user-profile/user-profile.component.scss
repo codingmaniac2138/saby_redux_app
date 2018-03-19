@@ -1,0 +1,89 @@
+@import "../../../global-scss/_variables.scss";
+
+.profile-section {
+    width: 100%;
+    color: #222222;
+    
+    
+    .user-section {
+        height: 20vh;
+        padding-left: 1.0em;
+        padding-top: 2.4em;
+        background-color: rgba(235, 235, 235, 1);
+        & > h2 {
+            color: #222222;
+            margin: 0px;
+            font-weight: 400;
+        }
+
+        .employee-info {
+            margin-top: 1.7em;
+            font-weight: 500;
+
+            .small-heading {
+                font-weight: 200;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .manage-role-section {
+        height: 65vh;
+        background-color: rgba(235,235,235, 0.7);
+        padding-left: 1.0em;
+        padding-top: 2.4em;
+        
+        .role-heading {
+            font-weight: 400;
+            font-size: 15px;
+        }
+
+        .label-heading {
+            font-size: 15px;
+            font-weight: 200;
+            display: block;
+            margin-top: 10px;
+
+            &::after {
+                content: "";
+                display: inline-block;
+                position: relative;
+                top: 0px;
+                left: 0px;
+                background-image: url("../../../assets/images/info-icon.svg");
+                width: 0.9em;
+                height: 0.9em; 
+            }
+        }
+
+        label.role-group {
+            display: inline-block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            .radio-icon {
+                &::after {
+                    top: 9px;
+                    left: 9px;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: white;
+                }
+            }
+        }
+    }
+}

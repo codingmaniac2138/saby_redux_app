@@ -1,0 +1,28 @@
+<section class="profile-section container-fluid">
+    <div class="row">
+        <div class="user-section">
+            <h2>{{ first_name }} {{ last_name }}</h2>
+            <div class="employee-info">
+                <span class="small-heading">Employee ID</span>
+                <br>
+                <span>{{ employee_id }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="manage-role-section">
+            <span class="role-heading">Manage Roles</span>
+            <div class="row">
+                <div class="col-xs-12">
+                    <span class="label-heading"> {{ moduleValue }} </span>
+                    <div>
+                        <label class="role-group" [for]="roleValue">{{ roleValue }}
+                            <input type="radio" [name]="roleValue" [value]="roleValue">
+                            <span class="radio-icon"></span>
+                        </label> 
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</section>
