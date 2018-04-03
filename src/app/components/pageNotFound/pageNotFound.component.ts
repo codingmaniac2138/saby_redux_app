@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { DummyService } from "../../services/dummy.service";
+
 
 @Component({
     selector: "app-page-not-found",
@@ -16,10 +16,10 @@ export class PageNotFound implements OnInit, OnDestroy {
     authorities: Array<any>;
     roles: Array<any>;
     modules: Array<any>;
+    toastFlag: boolean;
 
     constructor(
-        private _activatedRoute: ActivatedRoute,
-        private _dummyService: DummyService
+        private _activatedRoute: ActivatedRoute
     ) {}
 
     // life cycle hook that will run when the component will be loaded on the DOM.
@@ -71,6 +71,11 @@ export class PageNotFound implements OnInit, OnDestroy {
                 "description": "Bond"
             }
         ];
+
+        this.toastFlag = true;
+        setTimeout(() => {
+            this.toastFlag = false;
+        }, 3000);
     }
 
 
@@ -91,6 +96,9 @@ export class PageNotFound implements OnInit, OnDestroy {
         }
         
         console.log("the value of the module is: "+ JSON.stringify(this.authorities));
+    }
+    onModalSubmit() {
+        console.log("Submit button is clicked and modal is dismissed");
     }
 
     // life cycle hook that will run before the component will be destroyed.

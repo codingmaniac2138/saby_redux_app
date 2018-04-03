@@ -11,31 +11,34 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AuthorizationService } from "./services/authorization.service";
 import { DummyService } from "./services/dummy.service";
+import { AddUserService } from "./services/add-user.service";
+import { SearchService } from "./services/search.service";
+import { UserProfileService } from "./services/user-profile.service";
 
 import { CapitalizePipe } from "./pipes/capitalize.pipe";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { PageNotFound } from "./components/pageNotFound/pageNotFound.component";
 import { TableComponent } from './components/table/table.component';
 import { LandingComponent } from "./components/landing/landing.components";
 import { UserProfile } from "./components/user-profile/user-profile.component";
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent,
     LandingComponent,
     HeaderComponent,
     SearchComponent,
     PageNotFound,
     TableComponent,
     UserProfile,
-    CapitalizePipe
+    CapitalizePipe, 
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,9 @@ import { UserProfile } from "./components/user-profile/user-profile.component";
   ],
   providers: [
     AuthorizationService,
-    DummyService,
+    SearchService,
+    AddUserService,
+    UserProfileService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [ AppComponent ]

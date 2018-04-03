@@ -2,7 +2,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand">
+        <a class="navbar-brand" [routerLink]="['/', 'user_management', 'search_user']" [queryParams]="{'search_active_directory': false}">
           <span class="heading">AMAZE</span>
           <span class="sub-heading">Management Portal</span>
         </a>
@@ -11,13 +11,19 @@
             <li>
               <a>
                 <span class="super-heading">Area</span>
-                {{ area }}
+                {{ area | capitalize}}
               </a>
             </li>
-            <li>
+            <li *ngIf="workspace_flag || user_flag">
               <a>
                 <span class="super-heading">Workspace</span>
-                {{ workspace }}
+                {{ workspace | capitalize}}
+              </a>
+            </li>
+            <li *ngIf="user_flag && workspace_flag">
+              <a>
+                <span class="super-heading">User Profile</span>
+                {{ user_first_name | capitalize }} {{ user_last_name | capitalize }}
               </a>
             </li>
           </ul>

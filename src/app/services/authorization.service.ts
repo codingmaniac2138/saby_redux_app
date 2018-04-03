@@ -26,8 +26,8 @@ import * as moment from "moment";
 @Injectable()
 export class AuthorizationService {
 
-    loginURL: string = "http://sbiwas8devv01.caremore.com:8080/amaze/api/v1.0/auth/login/";
-    fetchUserURL: string = "http://sbiwas8devv01.caremore.com:8080/amaze/api/v1.0/user/";
+    loginURL: string = "/amaze/api/v1.0/auth/login/";
+    fetchUserURL: string = "/amaze/api/v1.0/user/";
 
     // whether user has logged in or not
     loggedIn: boolean = false;
@@ -131,7 +131,7 @@ export class AuthorizationService {
     // fetching user after user has logged in and get the data of first name and last name
     fetchUserAfterLogin():Observable<any> {
         return this._httpService.get(this.fetchUserURL).map((data: any) => {
-            return {"workspace": "Search Users", "first_name": data.first_name, "last_name": data.last_name};
+            return { "first_name": data.first_name, "last_name": data.last_name };
         });
     }
 }

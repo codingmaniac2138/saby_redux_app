@@ -9,8 +9,7 @@ import { CookieService } from "ngx-cookie";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"],
-  providers: [AuthorizationService]
+  styleUrls: ["./login.component.scss"]
 })
 
 export class LoginComponent {
@@ -53,6 +52,9 @@ export class LoginComponent {
       (err) => {
         console.log("Inside the error of the authservice"+ JSON.stringify(err));
         this.errorBlockFlag = true;
+        this.spinnerFlag = false;
+        this.buttonText = "Sign In";
+        this.buttonColorFlag = false;
       }
     );
   }
@@ -77,8 +79,6 @@ export class LoginComponent {
   // reset the values after the error block is closed
   closeErrorBlock() {
     this.errorBlockFlag = false;
-    this.caremoreID = "";
-    this.password = "";
     this.spinnerFlag = false;
     this.buttonText = "Sign In";
     this.buttonColorFlag = false;

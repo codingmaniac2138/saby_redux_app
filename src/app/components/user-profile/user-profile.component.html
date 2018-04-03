@@ -9,19 +9,36 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" >
         <div class="manage-role-section">
             <span class="role-heading">Manage Roles</span>
-            <div class="row">
-                <div class="col-xs-12">
-                    <span class="label-heading"> {{ moduleValue }} </span>
-                    <div>
-                        <label class="role-group" [for]="roleValue">{{ roleValue }}
-                            <input type="radio" [name]="roleValue" [value]="roleValue">
-                            <span class="radio-icon"></span>
-                        </label> 
-                    </div>
+            <div *ngFor="let module of modules_data; let i = index" class="custom-radio">
+              <div class="heading-wrapper">
+                <span class="radio-heading">{{ module.description | capitalize }}</span>
+                <span class="info-icon"></span>
+              </div>
+              <div class="roles-wrapper" *ngIf="customHasOwnProperty((parsed_module_roles | async), module.name); else noAccess">
+                  <label *ngFor="let role of roles_data; let j = index" class="role-label" [ngStyle]="{'opacity': (i == 3 || i == 2) ? 0.5 : 1 }">
+                      <input type="radio" [disabled]="i == 3 || i == 2"  [name]="module.description" [checked]="getRoleId((parsed_module_roles | async), module.name, role.name)" [value]="role.id" (change)="onSelectionChange(role, module)">
+                      <span class="circle">
+                          {{ role.description | capitalize }}
+                      </span>
+                  </label>
+              </div>
+              <ng-template #noAccess>
+                <div class="roles-wrapper">
+                    <label *ngFor="let role of roles_data; let j = index" class="role-label" [ngStyle]="{'opacity': (i == 3 || i == 2) ? 0.5 : 1 }">
+                        <input type="radio" [disabled]="i == 3 || i == 2"  [name]="module.description" [checked]="j == 0" [value]="role.id" (change)="onSelectionChange(role, module)">
+                        <span class="circle">
+                            {{ role.description | capitalize }}
+                        </span>
+                    </label>
                 </div>
+              </ng-template>
+            </div>
+            <div class="button-footer">
+              <button class="btn btn-default" (click)="onCancelClick()">Close</button>
+              <button class="btn btn-primary" (click)="onPutSubmit()">Submit</button>
             </div>
         </div>  
     </div>

@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class ModalService {
 
-    private addURL = "http://sbiwas8devv01.caremore.com:8080/amaze/api/v1.0/user_management/add_user";
+    private addURL = "/amaze/api/v1.0/user_management/add_user";
     
     constructor() {}
 

@@ -5,7 +5,11 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {
+  console.log("Inside the main.ts file and in the production enviornment");
   enableProdMode();
+}
+else {
+  console.log("Inside the main.ts file and in the development environment");
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)

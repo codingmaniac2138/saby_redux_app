@@ -177,7 +177,7 @@
       color: #ffffff;
     }
     100% {
-      color: #69f3ab;
+      color: $light-green;
     }
   }
   .need-help {
@@ -185,6 +185,7 @@
     right: 0;
     top: 6px;
     a {
+      cursor: pointer;
       color: #ffffff;
       text-decoration: underline;
       font-weight: 200;
@@ -235,7 +236,7 @@
   margin-top: 20px;
   font-size: 1.0em;
   font-weight: 200;
-  border-color: #69f3ab;
+  border-color: $light-green;
   color: #ffffff;
   border-radius: 3px;
 }
@@ -259,7 +260,7 @@
 .error-block {
   height: 9vh;
   width: 45vw;
-  background-color: #FE5E3C;
+  background-color: $color-danger;
   border-radius: 3px;
   position: absolute;
   right: 0;
@@ -298,6 +299,42 @@
 
 .logo-wrapper {
   width: 100%;
+}
+
+.modal {
+    
+  .modal-dialog {
+
+      .modal-content {
+          font-size: $font-size-base;
+
+          .modal-header {
+              height: 10%;
+              border-bottom: none;
+              
+              .modal-title {
+                  color: $light-blue;
+                  font-size: 1.5em;
+              }
+          }
+
+          .modal-body {
+              color: $light-blue;
+          }
+
+          .modal-footer {
+              border-top: none;
+              
+              .btn-default {
+                  border: none;
+
+                  &:hover {
+                      background-color: #ccc;
+                  }
+              }
+          }
+      }
+  }
 }
 
 /*-----------Login Component Media Queries----------------*/

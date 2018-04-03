@@ -5,5 +5,5 @@ export interface searchQuery {
     first_name?: string;
     last_name?: string;
     search_active_directory?: boolean;
-    module?: Module
+    module?: any
 }

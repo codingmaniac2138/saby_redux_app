@@ -17,9 +17,13 @@ import { BehaviorSubject } from "rxjs/BehaviorSubject";
 export class SearchService {
     
     users: Array<User>;
+    
+    // the headerName BehaviorSubject Search User that is to be displayed at 
+    // header when search component loades it into the header 
     headerName = new BehaviorSubject("");
+    userInfo = new BehaviorSubject([]);
 
-    private searchURL = "http://sbiwas8devv01.caremore.com:8080/amaze/api/v1.0/user_management/search_user";
+    private searchURL = "/amaze/api/v1.0/user_management/search_user";
 
     constructor(private _httpService: HttpClient) {}
 
@@ -50,7 +54,7 @@ export class SearchService {
                     "employee_id": resObject.username
                 });
             });
-
+            console.log("the value of responce array is: "+ JSON.stringify(responceArray));
             return responceArray;
         });
     }
