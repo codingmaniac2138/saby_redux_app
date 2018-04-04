@@ -3,14 +3,16 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { SearchService } from "../services/search.service";
 
+import { CONFIG } from "../../config";
+
 import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
-import "rxjs/add/operator/map"
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class UserProfileService {
     private getRolesURL = "";
-    private putRolesURL = "/amaze/api/v1.0/user_management/user_roles/";
+    private putRolesURL = `${CONFIG.url_prefix}/amaze/api/v1.0/user_management/user_roles/`;
     userHeaderName = new Subject();
     
     constructor(

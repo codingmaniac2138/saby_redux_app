@@ -21,22 +21,23 @@
     <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
       <div class="form-group">
         <label for="first_name">First Name</label>
-        <input [disabled]="key_down_flag" type="type" maxlength="15" class="form-control" name="first_name" [(ngModel)]="first_name" placeholder="John" minlength="2">
+        <input type="type" maxlength="15" class="form-control" name="first_name" [(ngModel)]="first_name" placeholder="John" minlength="2">
       </div>
       <div class="form-group">
         <label for="last_name">Last Name</label>
-        <input [disabled]="key_down_flag" type="type" maxlength="15" class="form-control" name="last_name" [(ngModel)]="last_name" placeholder="Doe" minlength="2">
+        <input type="type" maxlength="15" class="form-control" name="last_name" [(ngModel)]="last_name" placeholder="Doe" minlength="2">
       </div>
       <div class="form-group">
         <label for="employee_id">Employee ID</label>
-        <input (keydown)= "onkeydown ($event)" type="type" class="form-control" name="employee_id" [(ngModel)]="employee_id" placeholder="AF55555" minlength="2">
+        <input type="type" class="form-control" name="employee_id" [(ngModel)]="employee_id" placeholder="AF55555" minlength="2">
       </div>
       <div class="form-group role-group" [ngStyle]="{'opacity': (search_active_directory == 'true') ? 0.5 : 1 }">
         <label for="roles">Role</label>
         <select class="form-control" name="roles" id="roles" [(ngModel)]="role_option" [disabled]="search_active_directory == 'true'">
           <option [ngValue]="null" [selected]="0 == 0"> --- </option>
-          <option *ngFor="let role of roles_data; let i = index" [ngValue]="role.name">
-            {{ role.description | capitalize }}
+          <option *ngFor="let obj of combination_module_role; let i = index" [ngValue]="obj.mapping">
+            {{ obj.value | capitalize }}
+            <!-- {{ role.description | capitalize }} -->
           </option>
         </select>
       </div>
@@ -57,7 +58,7 @@
     <div *ngIf="!showTable && dataArrayLength === 0 && search_active_directory == 'true' && search_active_error_flag && dirtyFlag">
       <p> We are unable to find the user in the active directory.</p>
     </div>
-    <div *ngIf="!showTable && !dirtyFlag && !search_active_error_flag && search_active_directory == 'false'">
+    <div *ngIf="!showTable && !dirtyFlag && !search_active_error_flag">
       <p>We are currently showing no results. Enter your criteria and click "Search" to begin search.</p>
     </div>
     <div *ngIf="dataArrayLength === 0 && !showTable && dirtyFlag && search_active_directory == 'false'">
@@ -85,9 +86,12 @@
               <td>{{ user.last_name }}</td>
               <td>{{ user.employee_id }}</td>
               <td *ngIf="search_active_directory == 'false'">
-                <span *ngFor="let user_role of user.roles; let j = index">
-                  {{ user_role.description | capitalize }} &nbsp;
-                </span>
+                <span *ngFor="let mapping of user.mappedArray; let j = index">
+                  {{ mapping.module_name | capitalize }} --
+                  <span *ngFor="let role of mapping.roles; let k = index">
+                    {{ role | capitalize }}
+                  </span> &nbsp;&nbsp;
+                </span> 
               </td>
             </tr>
           </tbody>

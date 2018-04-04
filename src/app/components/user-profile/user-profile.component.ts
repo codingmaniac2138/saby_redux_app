@@ -61,20 +61,20 @@ export class UserProfile implements OnInit  {
         return new Promise((resolve, reject) => {
             const moduleRoleMap = {};
             _.forEach(this.authorities, (amaze_module) => {
-                console.log("the value of the amaze_module"+ JSON.stringify(amaze_module));
+                // console.log("the value of the amaze_module"+ JSON.stringify(amaze_module));
                 moduleRoleMap[amaze_module.name] = {};
                 amaze_module.roles.forEach(role => {
                     moduleRoleMap[amaze_module.name][role.name] = role.id;
                 });
-                console.log("the value of the moduleRoleMap is: "+ JSON.stringify(moduleRoleMap));
+                // console.log("the value of the moduleRoleMap is: "+ JSON.stringify(moduleRoleMap));
                 resolve(moduleRoleMap);
             });
         });
     }
 
     onSelectionChange(role, module) {
-        console.log("the value of the role is: "+ JSON.stringify(role));
-        console.log("the value of the module is: "+ JSON.stringify(module));
+        // console.log("the value of the role is: "+ JSON.stringify(role));
+        // console.log("the value of the module is: "+ JSON.stringify(module));
         // check whether the object of module and roles has already been pushed or not
         const isModulePresent: boolean = this.putQuery.some((obj) => {
             return obj["id"] == module.id; 

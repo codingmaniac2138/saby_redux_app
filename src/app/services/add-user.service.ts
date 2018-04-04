@@ -1,11 +1,13 @@
 import { Injectable } from "@angular/core";
 
+import { CONFIG } from "../../config";
+
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable"; 
 
 @Injectable()
 export class AddUserService {
-    private addUserURL: string = "/amaze/api/v1.0/user_management/add_user";
+    private addUserURL: string = `${CONFIG.url_prefix}/amaze/api/v1.0/user_management/add_user`;
 
     constructor(private _httpClient: HttpClient) {}
 

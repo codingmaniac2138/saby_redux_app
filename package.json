@@ -4,14 +4,20 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "dev": "ng serve",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build --prod --aot",
-    "postbuild": "npm run deploy",
+    "build-prod": "ng build --env=prod --aot",
+    "build-test": "ng build --env=test",
+    "build-staging": "ng build --env=staging",
     "predeploy": "rimraf ../resources/static/ && mkdirp ../resources/static",
     "deploy": "copyfiles -f dist/** ../resources/static",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "engines": {
+    "node": ">=8.1.1",
+    "npm": ">=5.0.3"
   },
   "author": {
     "name": "Amaze Caremore Team"
@@ -20,11 +26,13 @@
   "dependencies": {
     "@angular-devkit/core": "^0.4.3",
     "@angular/animations": "^5.2.7",
+    "@angular/cdk": "^5.2.4",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
     "@angular/core": "^5.0.0",
     "@angular/forms": "^5.0.0",
     "@angular/http": "^5.0.0",
+    "@angular/material": "^5.2.4",
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
@@ -35,6 +43,7 @@
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
+    "hammerjs": "^2.0.8",
     "intl": "^1.2.5",
     "jquery": "^3.3.1",
     "jsonwebtoken": "^8.2.0",

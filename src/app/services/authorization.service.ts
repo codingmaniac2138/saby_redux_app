@@ -14,6 +14,8 @@ import { MODULES } from "../models/modules.enum";
 import { User } from "../models/user.model";
 import { ERRORS } from "../models/error.enum";
 
+import { CONFIG } from "../../config";
+
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import "rxjs/add/operator/do";
@@ -26,8 +28,8 @@ import * as moment from "moment";
 @Injectable()
 export class AuthorizationService {
 
-    loginURL: string = "/amaze/api/v1.0/auth/login/";
-    fetchUserURL: string = "/amaze/api/v1.0/user/";
+    private loginURL: string = `${CONFIG.url_prefix}/amaze/api/v1.0/auth/login/`;
+    private fetchUserURL: string = `${CONFIG.url_prefix}/amaze/api/v1.0/user/`;
 
     // whether user has logged in or not
     loggedIn: boolean = false;

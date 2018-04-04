@@ -6,13 +6,14 @@ import { Observable } from "rxjs/Observable";
 import { User } from "../models/user.model";
 import { MODULES } from "../models/modules.enum";
 
+import { CONFIG } from "../../config";
+
 import "rxjs/add/operator/map";
 
 import * as _ from "lodash";
 import { ROLES } from '../models/roles.enum';
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
-
-
+   
 @Injectable() 
 export class SearchService {
     
@@ -23,7 +24,7 @@ export class SearchService {
     headerName = new BehaviorSubject("");
     userInfo = new BehaviorSubject([]);
 
-    private searchURL = "/amaze/api/v1.0/user_management/search_user";
+    private searchURL = `${CONFIG.url_prefix}/amaze/api/v1.0/user_management/search_user`;
 
     constructor(private _httpService: HttpClient) {}
 
