@@ -43,8 +43,3 @@ Thumbs.db
 
 #dummy files
 payload.json
-
-#dev, testing and staging
-/src/config/dev.config.ts
-/src/config/staging.config.ts
-/src/config/test.config.ts
