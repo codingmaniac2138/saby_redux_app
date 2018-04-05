@@ -6,6 +6,7 @@
     "ng": "ng",
     "dev": "ng serve",
     "start": "ng serve --proxy-config proxy.conf.json",
+	"build-dev": "ng build --env=dev",
     "build-prod": "ng build --env=prod --aot",
     "build-test": "ng build --env=test",
     "build-staging": "ng build --env=staging",
