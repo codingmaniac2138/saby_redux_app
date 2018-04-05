@@ -5,7 +5,7 @@ import { environment } from "../environments/environment";
 import { DEV_CONFIG } from "./dev.config"
 import { PROD_CONFIG } from "./prod.config";
 import { TEST_CONFIG } from "./test.config";
-import { STAGING_CONFIG } from "./staging.config";
+import { STAGING_CONFIG } from "./stage.config";
 
 export let CONFIG: any;
 
