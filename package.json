@@ -9,7 +9,7 @@
 	"build-dev": "ng build --env=dev",
     "build-prod": "ng build --env=prod --aot",
     "build-test": "ng build --env=test",
-    "build-staging": "ng build --env=staging",
+    "build-stage": "ng build --env=staging",
     "predeploy": "rimraf ../resources/static/ && mkdirp ../resources/static",
     "deploy": "copyfiles -f dist/** ../resources/static",
     "test": "ng test",
