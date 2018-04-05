@@ -13,12 +13,12 @@
       <form class="form-wrapper" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
         <div class="form-group">
           <span class="user-logo"></span>
-          <input type="text" id="username" class="form-control" [(ngModel)]="caremoreID" name="caremoreID" required>
+          <input type="text" id="username" class="form-control" [(ngModel)]="caremoreID" name="caremoreID" autocomplete="off" required>
           <label for="username" class="floating-label">CareMore ID</label>
         </div>
         <div class="form-group">
           <span class="pass-logo"></span>
-          <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" required>
+          <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" autocomplete="off" required>
           <label for="password" class="floating-label">Password</label>
         </div>
         <button class="btn btn-lg btn-block" [disabled]="!loginForm.valid" [ngClass]="{'btn-on-clicked': buttonColorFlag, 'btn-color-invalid': !loginForm.valid, 'btn-color-valid': loginForm.valid }"

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 
 import { OrderPipe } from 'ngx-order-pipe';
@@ -15,6 +15,7 @@ import { SearchService } from "../../services/search.service";
 
 import { ROLES_DATA } from "../../models/roles.data";
 import { MODULES_DATA } from "../../models/modules.data";
+import { resetFakeAsyncZone } from "@angular/core/testing";
 
 @Component({
     selector: "app-search",
@@ -29,19 +30,20 @@ export class SearchComponent implements OnInit {
     first_name: string;
     last_name: string;
     employee_id: string;
-    search_active_directory: boolean;
+    search_active_directory: any;
     role: string;
     show_active_directory_filed: string;
     searchForm: NgForm;
     roles_data: Array<any> = ROLES_DATA;
     modules_data: Array<any> = MODULES_DATA;
+    combination_module_role: Array<any> = [];
     buttonText: string;
     searchFlag: boolean;
     dirtyFlag: boolean;
     module: any;
     query: searchQuery;
     roles: Array<any>;
-    role_option: string;
+    role_option: any;
     page_function: string;
     toast_flag: boolean;
     search_active_error_flag: boolean = false;
@@ -101,6 +103,20 @@ export class SearchComponent implements OnInit {
         });
         this.module = {};
         this.toast_flag = false;
+
+        _.forEach(this.modules_data, (amaze_module) => {
+            _.forEach(this.roles_data, (role) => {
+                let mapping = {};
+                const value = this.getRole(role.name);
+                mapping["roles"] = value;
+                mapping["id"] = amaze_module.id;
+                this.combination_module_role.push({
+                    "value": amaze_module.name + " " + role.name,
+                    "mapping": mapping 
+                });
+            });
+        });
+        // console.log("the array is:"+ JSON.stringify(this.combination_module_role));
     }
      
     // disabling on the key down event
@@ -115,21 +131,16 @@ export class SearchComponent implements OnInit {
         this.searchFlag = false;
         this.showTable = true;
         this.dirtyFlag = true;
-        this.show_active_directory_filed = this.first_name ? this.first_name : ( this.last_name ? this.last_name : (this.employee_id ? this.employee_id : (this.role_option ? this.role_option : "")));
-        // console.log("the value of the role_option is: "+ this.role_option);
+        this.show_active_directory_filed = this.first_name ? this.first_name : ( this.last_name ? this.last_name : (this.employee_id ? this.employee_id : ""));
+        // console.log("the value of the show active directory filed  is: "+ JSON.stringify(this.show_active_directory_filed));
+        // console.log("the value of the role option value is: " + JSON.stringify(this.role_option));
         if(this.role_option) {
-            this.roles = this.getRole(this.role_option);
             this.query = {
                 "first_name": this.first_name || "",
                 "last_name": this.last_name || "",
                 "username": this.employee_id || "",
                 "search_active_directory": this.search_active_directory,
-                "module": {
-                    "id": this.module_id,
-                    "name": this.module_name,
-                    "description": this.module_description,
-                    "roles": this.roles
-                }
+                "module": this.role_option
             };
         }
         else {
@@ -150,6 +161,9 @@ export class SearchComponent implements OnInit {
                     this.dirtyFlag = true;
                     this.dataArrayLength = 0;
                     this.buttonText = "Search";
+                    if(this.search_active_directory) {
+                        this.search_active_error_flag = true;
+                    }
                 }
                 else {
                     this.parseResultDataArray(resultArray).then((dataArray) => {
@@ -188,38 +202,25 @@ export class SearchComponent implements OnInit {
     parseResultDataArray(resultArray): Promise<any> {
         return new Promise((resolve, reject) => {
             let dataArray = [];
-            // _.forEach(resultArray, (user) => {
-            //     let mappedArray = [];
-            //     _.forEach(user.authorities, (authority) => {
-            //         let userMapping = {};
-            //         userMapping["module_name"] = authority.name;
-            //         userMapping["roles"] = authority.roles;
-            //         mappedArray.push(userMapping);
-            //     });
-            //     dataArray.push({
-            //         "first_name": user.first_name,
-            //         "last_name": user.last_name,
-            //         "employee_id": user.username,
-            //         "mapping": mappedArray
-            //     });
-            //     resolve(dataArray)
-            // });
-
             _.forEach(resultArray, (user) => {
-                let tempRoles = [];
-                _.flatMap(user.authorities, (amaze_module) => {
-                    _.map(amaze_module.roles, (role: any) => {
-                        tempRoles.push(role);
+                let mappedArray = [];
+                _.forEach(user.authorities, (authority: any) => {
+                    let mapping = {};
+                    mapping["module_name"] = authority.name;
+                    mapping["roles"] = _.map(authority.roles, (role: any) => {
+                        return role.name;
                     });
+                    mappedArray.push(mapping);
                 });
+
                 dataArray.push({
                     "first_name": user.first_name,
                     "last_name": user.last_name,
                     "employee_id": user.username,
-                    "roles": tempRoles
+                    "mappedArray": mappedArray 
                 });
-                resolve(dataArray);
             });
+            resolve(dataArray);
         });
     }
 

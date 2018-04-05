@@ -25,6 +25,8 @@ import { TableComponent } from './components/table/table.component';
 import { LandingComponent } from "./components/landing/landing.components";
 import { UserProfile } from "./components/user-profile/user-profile.component";
 import { ModalComponent } from './components/modal/modal.component';
+import { BreadcrumsComponent } from "./components/breadcrums/breadcrums.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { ModalComponent } from './components/modal/modal.component';
     TableComponent,
     UserProfile,
     CapitalizePipe, 
-    ModalComponent
+    ModalComponent,
+    DashboardComponent,
+    BreadcrumsComponent
   ],
   imports: [
     BrowserModule,
