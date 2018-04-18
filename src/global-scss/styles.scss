@@ -1,9 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./_variables.scss";
 
-// importing the theme from the material's prebuilt themes (indigo-pink)
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
 body {
   color: $font-color;
   font-family: $app-font-stack;

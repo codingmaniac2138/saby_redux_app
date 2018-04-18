@@ -1,11 +1,12 @@
 /**
- * Config file that will provide the devlopment and production feature too
+ * Config file that provides Dev environment, Production environment, Test environment and Statging environment
  */
+
 import { environment } from "../environments/environment";
 import { DEV_CONFIG } from "./dev.config"
 import { PROD_CONFIG } from "./prod.config";
 import { TEST_CONFIG } from "./test.config";
-import { STAGING_CONFIG } from "./stage.config";
+import { STAGING_CONFIG } from "./staging.config";
 
 export let CONFIG: any;
 
