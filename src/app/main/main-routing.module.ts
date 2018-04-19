@@ -38,16 +38,16 @@ const routes: Routes = [
     canActivate: [ AuthGuard ],
     loadChildren: "../bond/bond.module#BondModule"
   },
-  // {
-  //   path: "coding_review",
-  //   data: {
-  //     breadcrumb: {
-  //       label: "Area",
-  //       desc: "Coding Review"
-  //     }
-  //   },
-  //   loadChildren: "../coding-review/coding-review.module#CodingReviewModule"
-  // },
+  {
+    path: "coding_review",
+    data: {
+      breadcrumb: {
+        label: "Area",
+        desc: "Coding Review"
+      }
+    },
+    loadChildren: "../coding-review/coding-review.module#CodingReviewModule"
+  },
   // {
   //   path: "user_management",
   //   loadChildren: "../user-management/user-management.module#UserManagementModule"

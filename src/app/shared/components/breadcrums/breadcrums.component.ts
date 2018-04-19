@@ -1,14 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
+// Router imports 
 import { Router, ActivatedRoute, NavigationEnd, ActivationEnd, ActivatedRouteSnapshot } from "@angular/router";
 
-import { Breadcrum } from "./breadcrum.interface";
+// Breadcrumb Interface
+import { Breadcrumb } from "./breadcrum.interface";
 
+// Importing the Behavior Subject
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+
+// Importing all the operators
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/filter";
 import "rxjs/add/operator/distinctUntilChanged";
-
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
 @Component({
   selector: 'app-breadcrums',
@@ -37,7 +41,7 @@ export class BreadcrumsComponent implements OnInit {
     // console.log("Inside the breadcrum component");
   }
 
-  buildBreadCrumb(activatedRouteSnapshot: ActivatedRouteSnapshot , url: string = "", breadcrumbs: Array<Breadcrum> = []): Array<Breadcrum> {
+  buildBreadCrumb(activatedRouteSnapshot: ActivatedRouteSnapshot , url: string = "", breadcrumbs: Array<Breadcrumb> = []): Array<Breadcrumb> {
     
     const label = activatedRouteSnapshot.routeConfig ? activatedRouteSnapshot.routeConfig.data.breadcrumb["label"] : "";
     const description = activatedRouteSnapshot.routeConfig ? activatedRouteSnapshot.routeConfig.data.breadcrumb["desc"]: ""; 
