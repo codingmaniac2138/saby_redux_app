@@ -1,0 +1,14 @@
+{
+    "user_id": 3,
+    "username": "amazetest3",
+    "first_name": "Amaze",
+    "last_name": "Test3",
+    "actors": [
+        {
+            "actor_id": 13,
+            "name": "CR_CLERK",
+            "description": "Coding Review Clerk",
+            "module_id": 4
+        }
+    ]
+}
