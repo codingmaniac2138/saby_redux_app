@@ -29,14 +29,14 @@ export function authReducer(state = initialState, action: AuthActions.AuthAction
         case AuthActions.SET_TOKEN:
             return Object.assign({}, state, {
                 access_token: action.payload.access_token,
-                refresh_token: action.payload.refresh_token
+                refresh_token: action.payload.refresh_token,
+                access_token_exp: action.payload.access_token_exp
             });
         case AuthActions.SET_LOGGED_USER:
             return Object.assign({}, state, {
-                user: action.payload
+                user: { ...state.user, ...action.payload }
             });
         case AuthActions.AUTH_ERROR: 
-            console.log("Inside the auth error action reducer case");
             return Object.assign({}, state, {
                 error: action.payload
             });
