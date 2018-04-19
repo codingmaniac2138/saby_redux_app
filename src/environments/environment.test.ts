@@ -6,5 +6,5 @@ export const environment = {
     testing: true,
     production: false,
     development: false,
-    staging: false
+    stage: false
 };

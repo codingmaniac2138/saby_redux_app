@@ -6,7 +6,7 @@ import { environment } from "../environments/environment";
 import { DEV_CONFIG } from "./dev.config"
 import { PROD_CONFIG } from "./prod.config";
 import { TEST_CONFIG } from "./test.config";
-import { STAGING_CONFIG } from "./staging.config";
+import { STAGE_CONFIG } from "./stage.config";
 
 export let CONFIG: any;
 
@@ -22,7 +22,7 @@ else if(environment.testing) {
     console.log("Inside the config file and in testing mode");
     CONFIG = TEST_CONFIG;
 } 
-else if(environment.staging) {
+else if(environment.stage) {
     console.log("Inside the config file and in staging mode");
-    CONFIG = STAGING_CONFIG
+    CONFIG = STAGE_CONFIG;
 }

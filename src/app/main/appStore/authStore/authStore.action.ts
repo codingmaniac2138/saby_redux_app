@@ -30,7 +30,7 @@ export class LoggedOut implements Action {
 export class SetToken implements Action {
     readonly type = SET_TOKEN;
 
-    constructor(public payload: { access_token: string, refresh_token?: string }) {}
+    constructor(public payload: { access_token: string, refresh_token?: string, access_token_exp?: string }) {}
 }
 
 // Action Emitted when the User tries to log in.
