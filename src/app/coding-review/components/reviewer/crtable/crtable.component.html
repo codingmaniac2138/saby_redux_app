@@ -1,0 +1,39 @@
+<section class="table-section">
+<!-- <div>
+  <br>
+</div> -->
+  <!-- -dynamic table- -->
+  <div class="container">
+      <input style="color:black" type="text" id="myInput" (keyup)="(myFunction())" placeholder="Search here.." title="Type in a name">
+      New <input id="new" type="checkbox" name="status" value="new" (change)="read_checks()" >
+       In Progress <input id="progress" type="checkbox" name="status" value="progress" (change) ="read_checks()"> 
+    <!-- {{ character }} -->
+    <br>
+    <table id="tb" class="table table-bordered sortable">     <!-- <table id="example" class="table "> -->
+      <thead>
+      <tr>
+        <th data-defaultsort="enabled" *ngFor="let col of columns">
+          {{col}}
+        </th>
+      </tr>
+    </thead>
+    <!-- routerLink ='/{{click_row}}' -->
+    <!-- (click)='onRowClicked($event)'   -->
+    <!-- routerLink ="../info/John" -->
+    <tr (click)='onRowClicked($event)' *ngFor="let char of character">
+      
+          <ng-container *ngIf="char.Status == 'New'">
+                              <td><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> {{char.Status}}</td>
+                              </ng-container>
+          <ng-container *ngIf="char.Status == 'In Progress'">
+                              <td><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> {{char.Status}}</td>
+                              </ng-container>
+                              <td data-defaultsign='AZ' >{{char["First Name"]}}</td>
+                              <td data-defaultsign='AZ'>{{char["Last Name"]}}</td>
+                              <td data-dateformat="MM-DD-YYYY" data-defaultsign='month' >{{char["Discharge Date"]}}</td>
+                
+       
+      </tr>
+    </table>
+  </div>
+</section>

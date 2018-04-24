@@ -1,0 +1,250 @@
+@import "../../../../../global-scss/_variables.scss";
+
+.section-background {
+    background-color:lightgray  ;
+}
+.a-text{
+    font-size: 20px;
+    text-decoration: none;
+}
+.table-set{
+    width:100%;
+    margin-left: 0px;
+    & > thead > th{
+        color: black;
+    }
+    & > tbody > tr{
+        color: black;
+    }
+}
+.name-font{
+    font-size:25px;
+}
+.icon-font{
+    font-size: 25px;
+}
+.table-section {
+    color: black;
+    background-color: med-grey;
+    
+    .table {
+        width:100%;
+        margin-left: 0px;
+        padding: 5px;
+        width:1250px;
+        margin-left:-55px; 
+        margin-top:0px;
+        & > thead {
+            background-color: #EBEBEB;
+        }
+        & > thead > tr {
+            border-bottom-color: light-blue;
+
+        }
+        
+        & > thead > tr > th {
+            font-weight: font-weight-medium;
+            color: light-blue;
+        }
+ 
+        & > tbody :hover{
+            background-color:#9bbed8;
+            
+        }
+        & > tbody > tr > td {
+            border: 3px solid #EBEBEB;
+        }
+    }
+}
+.table-size{
+    width:1250px;
+    margin-left:-55px; 
+    margin-top:50px;
+}
+
+
+
+// ----------------------------------------------------------
+.table_th_tr{
+    color: black;
+}
+.info-wrapper {
+    height: 100%;
+
+    .patient-info-wrapper {
+        min-height: 150px;
+        margin: 0px;
+        padding: 5px;
+        background: #ccc;
+
+        h3 {
+            a {
+                color: transparent;
+                &:hover {
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            }
+            
+            .back-icon {
+                height: 20px;
+                width: 20px;
+            }
+        }
+    }
+
+    .heading {
+        display: block;
+        color: #222;
+        font-weight: 400;
+        margin-top: 5px;
+        font-size: 1.2em;
+        padding-left: 10px;
+    }
+
+    .clerk-upload-wrapper {
+        margin: 5px;
+        padding: 5px;
+        min-height: 150px;
+        background: transparent;
+
+        .face-sheet-uploader {
+            height: 80px;
+            background: transparent;
+
+            .sub-heading {
+                color: #222;
+                display: block;
+                margin-bottom: 5px;
+                font-size: 0.9em;
+            }
+
+            .card {
+                height: 100%;
+                background: aqua;
+                position: relative;
+                .card-body {
+                    min-height: 30px;
+                    background: transparent;
+                    text-align: justify;
+
+                    .file-text {
+                        display: inline-block;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 20%;
+                    }
+            
+                    .file-icon {
+                        font-size: 4.5em;
+                        padding-left: 10px;
+                        padding-top: 7px; 
+                    }
+
+                    .close-icon {
+                        background-image: url("../../../../../assets/images/close-icon.svg");
+                        height: 0.9em;
+                        width: 0.9em;
+                        position: absolute;
+                        background-repeat: no-repeat;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 10%;
+                    }
+
+                    .upload-icon {
+                        position: absolute;
+                        height: 0.9em;
+                        width: 0.9em;
+                        background-repeat: no-repeat;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 5%;
+                    }
+                }
+            }
+
+            .custom-btn {
+                margin: 5px auto;
+                display: block;
+            }
+        }
+
+        .progress-notes-uploader {
+            height: 80px;
+            background: transparent;
+
+            .sub-heading {
+                color: #222;
+                display: block;
+                margin-bottom: 5px;
+                font-size: 0.9em;
+            }
+
+            .card {
+                height: 100%;
+                background: aqua;
+                position: relative;
+                .card-body {
+                    min-height: 30px;
+                    background: transparent;
+                    text-align: justify;
+
+                    .file-text {
+                        display: inline-block;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 20%;
+                    }
+            
+                    .file-icon {
+                        font-size: 4.5em;
+                        padding-left: 10px;
+                        padding-top: 7px; 
+                    }
+
+                    .close-icon {
+                        background-image: url("../../../../../assets/images/close-icon.svg");
+                        height: 0.9em;
+                        width: 0.9em;
+                        position: absolute;
+                        background-repeat: no-repeat;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 10%;
+                    }
+
+                    .upload-icon {
+                        position: absolute;
+                        height: 0.9em;
+                        width: 0.9em;
+                        background-repeat: no-repeat;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 5%;
+                    }
+                }
+            }
+            
+            .custom-btn {
+                margin: 5px auto;
+                display: block;
+            }
+        }
+    }
+    
+    .clerk-encounter-wrapper {
+        margin: 5px;
+        min-height: 270px;
+        background: chartreuse;
+    }
+
+    .button-wrapper {
+        margin: 5px;
+        min-height: 20px;
+        display: block;
+        background: cadetblue;
+    }
+}

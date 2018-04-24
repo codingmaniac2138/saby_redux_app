@@ -1,0 +1,131 @@
+<section class="info-wrapper">
+  <div class="row">
+    <section class="patient-info-wrapper">
+      <h3>
+        <a (click)="backClicked()">
+          <img src="../../../../../assets/images/back-arrow-icon.svg" class="back-icon" alt="back-icon"/>
+        </a>
+        <span style="color: black"> <b>{{ id }}</b></span>
+      </h3>
+      <table class="table-set">
+          <tr>
+          <th></th>
+          <th>Member Plan</th>
+          <th>Member DOB</th>
+          <th>Discharge Date</th>
+          <th>Admit Date</th>
+          <th>Primary DX Code</th>
+          <th>Discharge Diagnosis</th>
+          <th>Admit Diagnosis</th>
+          <th>Admitting Facility</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td>CareMore Health Plan</td>
+          <td>1/7/1953</td>
+          <td>11/11/2017</td>
+          <td>11/11/2017</td>
+          <td>E11.10 Type2 Diabetes</td>
+          <td>Diabetes Mellitus</td>
+          <td>Diabetes Mellitus</td>
+          <td>LakeWood Regional Office</td>
+  
+        </tr>
+  
+      </table>
+    </section>
+  </div>
+  <div class="row">
+    <span class="heading">
+      Case Documents
+    </span>
+    <section class="clerk-upload-wrapper">
+      <div class="col-xs-6 face-sheet-uploader">
+        <span class="sub-heading">
+          Face Sheets
+        </span>
+        <div class="card">
+          <div class="card-body">
+            <i class="fa fa-file file-icon">
+            </i>
+            <span class="file-text">
+               {{ face_sheet_file_names[0] }} 
+            </span>
+            <i class="close-icon"></i>
+            <i class="fa fa-upload upload-icon"></i>
+          </div>
+        </div>
+        <button class="btn btn-secondary custom-btn">
+          Choose File
+        </button>
+      </div>
+      <div class="col-xs-6 progress-notes-uploader">
+        <span class="sub-heading">
+           Progress Notes
+        </span>
+        <div class="card">
+          <div class="card-body">
+            <i class="fa fa-file file-icon">
+            </i>
+            <span class="file-text">
+              {{ progress_notes_filenames[0] }}
+            </span>
+            <i class="close-icon"></i>
+            <i class="fa fa-upload upload-icon"></i>
+          </div>
+        </div>
+        <button class="btn btn-secondary custom-btn">
+          Choose File
+        </button>
+      </div>
+    </section>
+  </div>
+  <div class="row">
+    <div>
+      <section class="table-section">
+  
+        <!-- -dynamic table- -->
+        <div class="container">
+          <!-- {{ character }} -->
+          <table class="table">
+            <thead>
+            <tr>
+              <th *ngFor="let col of columns">
+                {{col}}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let char of character">
+              <td *ngFor="let col of columns">
+                {{char[col]}}
+                
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="button-wrapper">
+      <p>
+        Inside the button wrapper
+      </p>
+    </div>
+  </div> -->
+</section>
+<!-- _________________________________________starting creating modal_______________________________ -->
+  
+  
+  <!-- <button type="button" id="button">Modal</button>
+      <div class="overlay" id="overlay"></div>
+  <div class="modal" id="modal">
+  <app-crmodals></app-crmodals>
+  </div> -->
+  
+  
+  <!-- ______________________________________________________________________________________ -->
+
+  

@@ -1,0 +1,39 @@
+@import "../../../../../global-scss/_variables.scss";
+
+.table-section {
+    color: black;
+    background-color: med-grey;
+    
+    .table {
+        width:1250px;
+        margin-left:-55px; 
+        margin-top:50px;
+        padding: 5px;
+        & > thead {
+            background-color: #EBEBEB;
+        }
+        & > thead > tr {
+            border-bottom-color: light-blue;
+
+        }
+        
+        & > thead > tr > th {
+            font-weight: font-weight-medium;
+            color: light-blue;
+        }
+       
+        & > tbody :hover{
+            background-color:#9bbed8;
+            
+        }
+        & > tbody > tr > td {
+            border: 3px solid #EBEBEB;
+        }
+    }
+}
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}

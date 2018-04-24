@@ -1,0 +1,55 @@
+<section class="grid-wrapper">
+  <div *ngIf="dataLength != 0" class="row">
+    <br>
+    <div style="float: left;" class="col-xs-4 form-group">
+      <!-- <input type="text" [disabled]="dataLength == 0" class="form-control custom-search" placeholder="Filter Tasks" (keyup)="applyFilter($event.target.value)"> -->
+      <input id="search_input" class="form-control custom-search" placeholder="Filter Tasks" type="text" [disabled]="dataLength == 0" (keyup)="(myFunction())" title="Type in a name">
+     <span style="color: #062466"> New</span> <input id="new" type="checkbox" name="status" value="new" (change)="read_checks()" >
+       <span style="color: #062466">In Progress</span> <input id="progress" type="checkbox" name="status" value="progress" (change) ="read_checks()"> 
+      
+    </div>
+  </div>
+  <div id="tb" *ngIf="dataLength != 0; else noData" class="row data-table">
+    <mat-table [dataSource]="dataSource" matSort matSortActive="discharge_date" matSortDirection="asc" matSortDisableClear>
+      <!-- Status -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+        <mat-cell *matCellDef="let record">{{ record.status }}</mat-cell>
+      </ng-container>
+      <!-- First Name -->
+      <ng-container matColumnDef="first_name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+        <mat-cell *matCellDef="let record">{{ record.first_name }}</mat-cell>
+      </ng-container>
+
+      <!-- Last Name -->
+      <ng-container matColumnDef="last_name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let record">{{ record.last_name }}</mat-cell>
+      </ng-container>
+
+
+      <!-- Discharge Date -->
+      <ng-container matColumnDef="discharge_date">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Discharge Date </mat-header-cell>
+        <mat-cell *matCellDef="let record">{{ record.discharge_date | formatdate }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></mat-row>
+
+    </mat-table>
+
+    <mat-paginator [length]="dataLength" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageEvent=$event"></mat-paginator>
+  </div>
+  <ng-template #noData>
+    <div>
+      <span class="error-message">
+        We are unable to pull the data. please, retry again!
+      </span>
+    </div>
+  </ng-template>
+</section>
+      
+      
+     

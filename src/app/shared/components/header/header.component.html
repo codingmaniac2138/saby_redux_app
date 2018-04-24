@@ -1,0 +1,65 @@
+<section class="header-wrapper">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" [routerLink]="['/']">
+          <img class="amaze-logo" src="../../../../assets/images/amaze-logo-light.svg" alt="AMAZE LOGO">
+        </a>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a>
+                <span class="super-heading">Area</span>
+                {{ area$ | async }}
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="super-heading">Workspace</span>
+                {{ workspace$ | async }}
+              </a>
+            </li>
+          </ul>
+          <!-- <app-breadcrums></app-breadcrums> -->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <span>Welcome,</span>
+              <span class="user-name">{{ first_name }} {{ last_name }}</span>
+              <span class="user-profile"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>
+
+
+<!-- <section class="header-wrapper">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-menu">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <span class="heading">AMAZE</span>
+          <span class="sub-heading">Management Portal</span>
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="collapse-menu">
+        <app-breadcrums></app-breadcrums>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <span>Welcome,</span>
+            <span class="user-name">Harshit Pareek</span>
+            <span class="user-profile"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section> -->

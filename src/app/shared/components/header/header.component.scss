@@ -1,0 +1,127 @@
+@import "../../../../global-scss/_variables.scss";
+
+.header-wrapper {
+  height: 13%;
+  background-color: $dark-blue;
+
+  .navbar-default {
+    background: transparent;
+    border-color: transparent;
+
+    .navbar-header {
+      margin-top: 1%;
+
+      .navbar-brand {
+        color: $light-grey-blue;
+        font-weight: $font-weight-light;
+        padding-top: 1.0em;
+
+        .amaze-logo {
+          height: 27px;
+          width: 85px;
+        }
+      }
+    }
+    .navbar-collapse {
+      display: inline-block !important;
+      border-top: none;
+      box-shadow: none;
+
+      .navbar-nav {
+        font-weight: $font-weight-medium;
+
+        & > li > a {
+          color: white;
+        }
+        .super-heading {
+          display: block;
+          font-size: smaller;
+          font-weight: 100;
+          color: $light-grey-blue;
+        }
+
+        &.navbar-right {
+          position: absolute;
+          top: 50%;
+          right: 4%;
+          font-weight: 200;
+          font-size: 14px;
+
+          & > li {
+            margin-top: 5px;
+          }
+          
+          span {
+            color: $light-grey-blue;
+            font-size: 14px;
+          }
+          .user-name {
+            color: white;
+          }
+          .user-profile {
+            display: inline-block;
+            position: absolute;
+            top: -0.9em;
+            right: -2.9em;
+            width: 2.5em;
+            height: 2.5em;
+            background-image: url("../../../../assets/images/user-profile-icon.svg");
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: #{$small-devices}) {
+  .header-wrapper {
+    background-color: $dark-blue;
+    .navbar-default {
+      .navbar-header {
+        .navbar-brand {
+          .heading {
+            font-size: large;
+          }
+          .sub-heading {
+            font-size: small;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: #{$medium-devices}) {
+  .header-wrapper {
+    background-color: $dark-blue;
+    .navbar-default {
+      .navbar-header {
+        .navbar-brand {
+          .heading {
+            font-size: large;
+          }
+          .sub-heading {
+            font-size: small;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: #{$large-devices}) {
+  .header-wrapper {
+    background-color: $dark-blue;
+    .navbar-default {
+      .navbar-header {
+        .navbar-brand {
+          .heading {
+            font-size: large;
+          }
+          .sub-heading {
+            font-size: small;
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,97 @@
+@import "../../../../../global-scss/_variables.scss";
+
+.grid-wrapper {
+    .form-group {
+        margin-bottom: 0px;
+        
+        .form-control {
+            display: inline-block;
+
+            &.custom-search {
+                min-width: 20px;
+                margin-top: 15px;
+                width: 30%;
+            }
+        }
+
+        .filter-wrapper {
+            margin-left: 2.0em;
+            display: inline-block;
+            position: relative;
+
+            
+            label {
+                cursor: pointer;
+            }
+
+            .checkbox-text {
+                color: #fff;
+                font-weight: $font-weight-light;
+            }
+
+            input {
+                &[type=checkbox] {
+                    display: none;
+                }
+
+                &[type=checkbox] + .checkbox-text:before {
+                    content: "\f096";
+                    font-family: "FontAwesome";
+                    font-style: normal;
+                    font-weight: $font-weight-light;
+                    font-variant: normal;
+                    text-transform: none;
+                    font-size: 20px;
+                    color: #fff;
+                    top: -4px;
+                    left: -21px;
+                    position: absolute;
+                    display: inline-block;
+                    -webkit-font-smoothing: antialiased;
+                }
+
+                &:checked + .checkbox-text:before {
+                    content: "\f046";
+                    font-size: 20px;
+                    font-weight: 200;
+                    animation: tick 180ms ease 1 forwards;
+                }
+
+                @keyframes tick {
+                    0% {
+                        color: #ffffff;
+                    }
+                    100% {
+                        color: $dark-blue;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .data-table {
+        padding: 0px 10px;
+
+        .mat-table {
+            margin-top: 10px;
+            background: transparent;
+
+            .mat-header-row {
+                background: transparent;
+                min-height: 35px;
+            }
+
+            .mat-row {
+                background: #FFF;
+                min-height: 35px;
+
+
+                &:hover {
+                    background: $light-grey-blue;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

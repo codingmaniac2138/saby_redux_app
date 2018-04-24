@@ -1,0 +1,55 @@
+<section class="grid-wrapper">
+    <div class="row">
+        <div class="col-xs-12 form-group">
+            <input class="col-xs-4 form-control" type="text" [disabled]="dataLength == 0" class="form-control custom-search" (keyup)="applyFilter($event.target.value)" placeholder="Filter Tasks..." >
+            <section class="filter-wrapper">
+                <label>
+                    <input type="checkbox" name="new_filter" [(ngModel)]="new_filter" (change)="applyBooleanFilter('new', new_filter)">
+                    <span class="checkbox-text">New</span>
+                </label>
+            </section>
+            <section class="filter-wrapper">
+                <label>
+                    <input type="checkbox" name="progress_filter" [(ngModel)]="progress_filter" (change)="applyBooleanFilter('in_progress', progress_filter)">
+                    <span class="checkbox-text">In Progress</span>
+                </label>
+            </section>
+        </div>
+    </div>
+    <div *ngIf="dataLength != 0; else noData" class="row data-table">
+        <mat-table [dataSource]="dataSource" matSort>
+            <!-- Staus of Task -->
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                <mat-cell *matCellDef="let task">{{ task.status | capitalize | stringifystatus}}</mat-cell>
+            </ng-container>
+
+            <!-- First Name -->
+            <ng-container matColumnDef="first_name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+                <mat-cell *matCellDef="let task">{{ task.first_name }}</mat-cell>
+            </ng-container>
+
+            <!-- Last Name -->
+            <ng-container matColumnDef="last_name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+                <mat-cell *matCellDef="let task">{{ task.last_name }}</mat-cell>
+            </ng-container>
+
+            <!-- Discharge Date -->
+            <ng-container matColumnDef="discharge_date">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Discharge Date </mat-header-cell>
+                <mat-cell *matCellDef="let task">{{ task.discharge_date | formatdate }}</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></mat-row>
+        </mat-table>
+        <mat-paginator [length]="dataLength" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+    <ng-template #noData>
+        <div>
+            <p>No Data Came from the backend! </p>
+        </div>
+    </ng-template>
+</section>

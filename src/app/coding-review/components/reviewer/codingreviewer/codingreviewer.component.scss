@@ -1,0 +1,108 @@
+// Styling for the clerk grid
+@import "../../../../../global-scss/_variables.scss"; 
+
+.grid-wrapper {
+
+    .form-group {
+        margin-bottom: 0px;
+
+        .form-control {
+
+            &.custom-search {
+                min-width: 50px;
+                margin-top: 15px;
+            }
+        }
+    }
+
+    .data-table {
+        padding: 0px 10px;
+
+        .loader-shade {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.15);
+            align-content: center;
+            justify-content: center;
+        }
+    
+        .mat-table {
+            margin-top: 10px;
+            background: transparent;
+    
+            .mat-header-row {
+                background: transparent;
+
+                .mat-header-cell {
+                    color: #062466;
+                }
+            }
+            
+    
+            .mat-row {
+                background: #fff;
+                min-height: 35px;
+                &:hover{
+                    cursor: pointer;
+                    background-color:#9bbed8;
+                    
+                }
+            }
+            // .mat-row :hover{
+            //     background-color:#9bbed8;
+                
+            // }
+        }
+    }
+
+    .error-message {
+        text-align:  center;
+        color: $color-danger;
+        display: block;
+        margin-top: 20px; 
+    }
+}
+
+
+
+
+.table-section {
+  color: black;
+  background-color: med-grey;
+  
+  .table {
+      width:1250px;
+      margin-left:-55px; 
+      margin-top:50px;
+      padding: 5px;
+      & > thead {
+          background-color: #EBEBEB;
+      }
+      & > thead > tr {
+          border-bottom-color: light-blue;
+
+      }
+      
+      & > thead > tr > th {
+          font-weight: font-weight-medium;
+          color: light-blue;
+      }
+     
+      & > tbody :hover{
+          background-color:#9bbed8;
+          
+      }
+      & > tbody > tr > td {
+          border: 3px solid #EBEBEB;
+      }
+  }
+}
+table.sortable thead {
+  background-color:#eee;
+  color:#666666;
+  font-weight: bold;
+  cursor: default;
+}
