@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "user_id": 3,
     "username": "amazetest3",
@@ -11,4 +12,19 @@
             "module_id": 4
         }
     ]
+=======
+{
+    "user_id": 3,
+    "username": "amazetest3",
+    "first_name": "Amaze",
+    "last_name": "Test3",
+    "actors": [
+        {
+            "actor_id": 11,
+            "name": "CR_MANAGER",
+            "description": "Coding Review Manager",
+            "module_id": 4
+        }
+    ]
+>>>>>>> 60e51669c798aed2b942c06d7624cc3031e753ab
 }

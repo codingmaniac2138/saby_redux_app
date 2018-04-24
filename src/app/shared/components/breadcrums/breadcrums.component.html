@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- <div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     {{ desc }}
@@ -98,4 +99,106 @@
       User Management
     </a>
   </option>
+=======
+<!-- <div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    {{ desc }}
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="#">Coding Review</a>
+    </li>
+    <li>
+      <a href="#">Bond</a>
+    </li>
+    <li>
+      <a href="#">User Management</a>
+    </li>
+  </ul>
+</div> -->
+
+<!-- <ul class="nav navbar-nav">
+  <li>
+    <span class="super-heading">
+      Area
+    </span>
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        Bond
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a [routerLink]="['/', 'coding_review']">Coding Review</a>
+        </li>
+        <li>
+          <a [routerLink]="['/', 'bond']">Bond</a>
+        </li>
+        <li>
+          <a [routerLink]="['/', 'user_management']">User Management</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul> -->
+
+<!-- <div class="btn-group">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownmenu" data-toggle="dropdown">
+    Dropdown Link
+  </a>
+  <div class="dropdown-menu">
+    <a href="#"> Coding Review </a>
+    <a href="#"> User Management </a>
+    <a href="#"> Bond </a>
+  </div>
+</div> -->
+<!-- <li *ngFor="let breadcrumb of (breadcrumbs$ | async)">
+    <a 
+      class="btn btn-secondary dropdown-toggle" 
+      [routerLink]="['breadcrumb.']" 
+      role="button"
+      data-toggle="dropdown"
+      id="dropdownMenu">
+      <span class="super-heading">
+        {{ breadcrumb.label }}
+      </span>
+      {{ breadcrumb.desc }}
+    </a>
+  </li> -->
+
+<!-- <ul>
+  <li *ngFor="let breadcrumb of (breadcrumbs$ | async)">
+    {{ breadcrumb.desc }} {{ breadcrumb.label }}
+  </li>
+</ul> -->
+
+<!-- 
+<ul class="nav navbar-nav">
+  <li>
+    <a>
+      <span class="super-heading">
+
+      </span>
+    </a>
+  </li>
+</ul> -->
+
+<select class="custom-select">
+  <option value="bond">
+  <a [routerLink]="['bond']">
+    Bond
+  </a>
+</option>
+  <option value="coding_review">
+    <a [routerLink]="['coding_review']">
+      Coding Review
+    </a>
+</option>
+  <option value="user_management">
+    <a [routerLink]="['user_management']">
+      User Management
+    </a>
+  </option>
+>>>>>>> 60e51669c798aed2b942c06d7624cc3031e753ab
 </select>

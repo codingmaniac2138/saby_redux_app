@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProviderItemComponent } from './provider-item.component';
@@ -23,3 +24,30 @@ describe('ProviderItemComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+=======
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ProviderItemComponent } from './provider-item.component';
+
+describe('ProviderItemComponent', () => {
+  let component: ProviderItemComponent;
+  let fixture: ComponentFixture<ProviderItemComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ ProviderItemComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ProviderItemComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+>>>>>>> 60e51669c798aed2b942c06d7624cc3031e753ab

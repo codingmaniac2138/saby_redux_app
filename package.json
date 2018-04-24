@@ -27,13 +27,19 @@
   "dependencies": {
     "@angular-devkit/core": "^0.4.3",
     "@angular/animations": "^5.1.3",
+<<<<<<< HEAD
     "@angular/cdk": "^5.2.5",
+=======
+>>>>>>> 60e51669c798aed2b942c06d7624cc3031e753ab
     "@angular/common": "^5.1.3",
     "@angular/compiler": "^5.1.3",
     "@angular/core": "^5.1.3",
     "@angular/forms": "^5.1.3",
     "@angular/http": "^5.1.3",
+<<<<<<< HEAD
     "@angular/material": "^5.2.5",
+=======
+>>>>>>> 60e51669c798aed2b942c06d7624cc3031e753ab
     "@angular/platform-browser": "^5.1.3",
     "@angular/platform-browser-dynamic": "^5.1.3",
     "@angular/platform-server": "^5.1.3",
@@ -46,7 +52,10 @@
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
+<<<<<<< HEAD
     "hammerjs": "^2.0.8",
+=======
+>>>>>>> 60e51669c798aed2b942c06d7624cc3031e753ab
     "intl": "^1.2.5",
     "jquery": "^3.3.1",
     "jsonwebtoken": "^8.2.0",
